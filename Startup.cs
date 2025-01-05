@@ -48,9 +48,15 @@ namespace NishuPortFolio
 
             app.UseEndpoints(endpoints =>
             {
+                // Default route for the main site
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                // Route for the admin panel
+                endpoints.MapControllerRoute(
+                    name: "Admin",
+                    pattern: "Admin/{controller=Admin}/{action=Index}/{id?}");
             });
         }
     }

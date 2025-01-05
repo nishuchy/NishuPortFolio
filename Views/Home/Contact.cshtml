@@ -1,4 +1,4 @@
-﻿
+﻿@model NishuPortFolio.Models.Contact
 @{
     ViewData["Title"] = "Contact";
 }
@@ -15,11 +15,27 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="mail_section_1">
-                        <input type="text" class="mail_text" placeholder="Your Name" name="Your Name">
-                        <input type="text" class="mail_text" placeholder="Your Email" name="Your Email">
-                        <input type="text" class="mail_text" placeholder="Your Phone" name="Your Phone">
-                        <textarea class="massage-bt" placeholder="Your Massage" rows="5" id="comment" name="Your Massage"></textarea>
-                        <div class="send_bt"><a href="#">Send Now</a></div>
+                        @if (ViewBag.Msg != null)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                @ViewBag.Msg
+                            </div>
+                        }
+                        <form asp-action="Contact">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="text" class="mail_text" placeholder="Your Name" name="SName" asp-for="SName">
+                            <span asp-validation-for="SName" class="text-danger"></span>
+                            <input type="text" class="mail_text" placeholder="Your Email" name="Email" asp-for="Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <input type="text" class="mail_text" placeholder="Your Phone" name="Phone" asp-for="Phone">
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                            <textarea class="massage-bt" placeholder="Your Message" rows="5" id="comment" name="Message" asp-for="Message"></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
+                            <div class="send_btn_container">
+                                <input type="submit" value="Send Now" class="btn" />
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
