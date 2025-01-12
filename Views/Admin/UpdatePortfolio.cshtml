@@ -1,0 +1,78 @@
+﻿@model NishuPortFolio.Models.PortFolioAdd
+
+@{
+    ViewData["Title"] = "PortfolioUpdate";
+
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div style="margin:22px;">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Portfolio Update</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <a asp-action="Portfolio" style="padding:20px 30px">Back to List</a>
+                    </div>
+                </div>
+
+                <hr />
+            </div>
+
+            <form asp-area="Admin" asp-controller="Admin" asp-action="PortfolioUpdate" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" asp-for="portfolioid" />
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            @if (ViewBag.Msg != null)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    @ViewBag.Msg
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            <label asp-for="portfoliotitle">Title</label>
+                            <input asp-for="portfoliotitle" class="form-control" />
+                            <span asp-validation-for="portfoliotitle" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            <label asp-for="portfoliodescription">Description</label>
+
+                            <textarea asp-for="portfoliodescription" class="form-control" rows="5" cols="50"></textarea>
+
+                            <span asp-validation-for="portfoliodescription" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            <input type="submit" value="Update" class="btn btn-info btn-fill" />
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</div>

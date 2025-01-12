@@ -48,59 +48,64 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="http://www.creative-tim.com" class="simple-text">
-                        Creative Tim
-                    </a>
+                       Nishu's Portfolio           </a>
                 </div>
 
                 <ul class="nav">
-                    <li class="active">
-                        <a href="dashboard.html">
+                    <li class="nav-link @(ViewData["ActiveMenu"] as string == "Dashboard"  ? "active" : "")">
+                        <a asp-controller="Admin" asp-action="Dashboard">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="user.html">
+                    <li class="nav-link @(ViewData["ActiveMenu"] as string == "Portfolio"  ? "active" : "")">
+                        <a asp-controller="Admin" asp-action="Portfolio">
                             <i class="pe-7s-user"></i>
-                            <p>User Profile</p>
+                            <p>Portfolio</p>
                         </a>
                     </li>
-                    <li>
+                 
+                    <li class="nav-link @(ViewData["ActiveMenu"] as string == "Degree"  ? "active" : "")">
+                        <a asp-controller="Admin" asp-action="Degree">
+                            <i class="pe-7s-news-paper"></i>
+                            <p>Degree</p>
+                        </a>
+                    </li>
+                    <li class="nav-link @(ViewData["ActiveMenu"] as string == "Experience"  ? "active" : "")">
                         <a href="table.html">
                             <i class="pe-7s-note2"></i>
-                            <p>Table List</p>
+                            <p>Experience</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="typography.html">
-                            <i class="pe-7s-news-paper"></i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li>
+                    <li class="nav-link @(ViewData["ActiveMenu"] as string == "Skills"  ? "active" : "")">
                         <a href="icons.html">
                             <i class="pe-7s-science"></i>
-                            <p>Icons</p>
+                            <p>Skills</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-link @(ViewData["ActiveMenu"] as string == "Research"  ? "active" : "")">
                         <a href="maps.html">
                             <i class="pe-7s-map-marker"></i>
-                            <p>Maps</p>
+                            <p>Researchs</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="notifications.html">
-                            <i class="pe-7s-bell"></i>
-                            <p>Notifications</p>
+                    <li class="nav-link @(ViewData["ActiveMenu"] as string == "Important Links"  ? "active" : "")">
+                        <a href="maps.html">
+                            <i class="pe-7s-map-marker"></i>
+                            <p>Important Links</p>
                         </a>
                     </li>
-                    <li class="active-pro">
-                        <a href="upgrade.html">
+                    <li >
+                        <a asp-controller="Admin" asp-action="Logout">
                             <i class="pe-7s-rocket"></i>
-                            <p>Upgrade to PRO</p>
+                            <p>Logout</p>
                         </a>
+
+
                     </li>
+                   
+
+
                 </ul>
             </div>
         </div>
@@ -120,7 +125,7 @@
                 <div class="container-fluid">
                    
                     <p class="copyright pull-right">
-                        &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        &copy; <script>document.write(new Date().getFullYear())</script> Developed by Nishu Chowdhury
                     </p>
                 </div>
             </footer>
@@ -150,22 +155,11 @@
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
 
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-        }, {
-            type: 'info',
-            timer: 4000
-        });
-
-    });
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this item?");
+    }
 </script>
-
 </html>
 

@@ -1,0 +1,76 @@
+﻿@model NishuPortFolio.Models.DegreeAdd
+
+@{
+    ViewData["Title"] = "Update Degree";
+
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div style="margin:22px;">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Degree Update</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <a asp-action="Degree" style="padding:20px 30px">Back to List</a>
+                    </div>
+                </div>
+
+                <hr />
+            </div>
+
+            <form asp-area="Admin" asp-controller="Admin" asp-action="DegreeUpdate" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" asp-for="DegreeID" />
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            @if (ViewBag.Msg != null)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    @ViewBag.Msg
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            <label asp-for="DegreeTitle">Degree Title</label>
+                            <input asp-for="DegreeTitle" class="form-control" />
+                            <span asp-validation-for="DegreeTitle" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            <label asp-for="DegreeInstitute">Institute</label>
+                            <input asp-for="DegreeInstitute" class="form-control" />
+                            <span asp-validation-for="DegreeInstitute" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin:22px;">
+                            <input type="submit" value="Update" class="btn btn-info btn-fill" />
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</div>

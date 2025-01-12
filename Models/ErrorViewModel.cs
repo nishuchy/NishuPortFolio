@@ -27,5 +27,41 @@ namespace NishuPortFolio.Models
         public string Email { get; set; }
 
     }
+    public class AdminModelLogin
+    {
+        [Required]
+        public string username { get; set; }
+
+        [Required]
+        public string password { get; set; }
+
+        public int userid { get; set; }
+    }
+
+    public class PortFolioAdd
+    {
+        [Required]
+        public string portfoliodescription { get; set; }
+
+        [Required]
+        public string portfoliotitle { get; set; }
+
+        public int portfolioid { get; set; }
+
+        public List<PortFolioAdd> PortFolioList { get; set; }
+    }
+
+    public class DegreeAdd
+    {
+        [Required]
+        public string DegreeInstitute { get; set; }
+
+        [Required]
+        public string DegreeTitle { get; set; }
+
+        public int DegreeID { get; set; }
+
+        public List<DegreeAdd> DegreeList { get; set; }
+    }
 
 }

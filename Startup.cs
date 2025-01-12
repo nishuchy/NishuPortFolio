@@ -17,6 +17,7 @@ namespace NishuPortFolio
         {
             Configuration = configuration;
         }
+        
 
         public IConfiguration Configuration { get; }
 
@@ -24,6 +25,7 @@ namespace NishuPortFolio
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSession(); // Add session services
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,8 +45,9 @@ namespace NishuPortFolio
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

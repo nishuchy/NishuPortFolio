@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Degree";
+ 
+}
+@model List<NishuPortFolio.Models.DegreeAdd>
+
+
+
+<h2>Degree</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Degree List</h4>
+
+
+                <a asp-controller="Admin" asp-action="DegreeAdd" class="btn btn-info btn-fill pull-left">Add New</a>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <th>SL</th>
+                    <th>Title</th>
+                    <th></th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+
+
+                        @if (ViewBag.degreedata != null)
+                        {
+                            int serialNo = 1;
+                            foreach (var item in ViewBag.degreedata)
+                            {
+
+                                <tr>
+
+                                    <td>@serialNo</td>
+                                    <td>@item.DegreeTitle</td>
+                                    <td>@item.DegreeInstitute</td>
+                                    <td><a asp-action="UpdateDegree" asp-route-sid="@item.DegreeID">Update</a></td>
+                                    <td>
+
+
+
+                                        <form asp-action="DeleteDegree" method="post" asp-route-id="@item.DegreeID" onsubmit="return confirmDelete()">
+                                            <button><i class="pe-7s-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                serialNo++;
+                            }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+

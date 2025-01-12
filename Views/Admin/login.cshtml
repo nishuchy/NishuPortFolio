@@ -1,4 +1,4 @@
-﻿
+﻿@model NishuPortFolio.Models.AdminModelLogin 
 @{
     ViewData["Title"] = "Login";
  
@@ -19,26 +19,36 @@
                 <h4 class="title">Login</h4>
             </div>
             <div class="content">
-                <form>
+                <form asp-controller="Admin" asp-action="checkLogin" method="post">
                     <div class="row">
+                       
                         <div class="col-md-12">
+                            @if (ViewBag.Msg != null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @ViewBag.Msg
+                                </div>
+                            }
                             <div class="form-group">
                                 <label>User Name</label>
-                                <input type="text" class="form-control"  placeholder="User Name" 
+                                <input type="text" class="form-control"  placeholder="User Name" name="username" asp-for="username"
                                 >
+                                <span asp-validation-for="username" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" class="form-control"  placeholder="Password">
+                                <input type="password" class="form-control"  placeholder="Password" name="password" asp-for="password">
+                                <span asp-validation-for="password" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
 
                 
 
-                    <button type="submit" class="btn btn-info btn-fill pull-right">Login</button>
+                  
+                    <input type="submit" value="Login" class="btn btn-info btn-fill pull-right" />
                     <div class="clearfix"></div>
                 </form>
             </div>
